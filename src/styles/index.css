@@ -307,6 +307,72 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Hero Section with Banner Image */
+.hero-section-banner {
+  position: relative;
+  min-height: calc(50vh + 37px);
+  display: flex;
+  align-items: center;
+  color: white;
+  padding: calc(3rem + 18px) 0;
+  margin-bottom: 3rem;
+  overflow: hidden;
+}
+
+/* Blur overlay for the background image */
+.hero-blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  filter: blur(2px) brightness(0.7);
+  z-index: 1;
+}
+
+/* Content positioning */
+.hero-section-banner .container {
+  z-index: 2;
+  position: relative;
+}
+
+.hero-content {
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  padding: calc(2.5rem + 12px) 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Enhanced text styling */
+.hero-section-banner .hero-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
+  letter-spacing: 1px;
+}
+
+.hero-section-banner .hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  line-height: 1.6;
+}
+
+/* Static button styling */
+.hero-section-banner .btn {
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 .hero-title {
   font-size: 3.5rem;
   font-weight: 700;
@@ -735,4 +801,77 @@ body {
 .card-enhanced:hover {
   box-shadow: var(--box-shadow-lg);
   transform: translateY(-2px);
+}
+
+/* Responsive styles for banner hero section */
+@media (max-width: 768px) {
+  .hero-section-banner {
+    min-height: calc(45vh + 30px);
+    padding: calc(2.5rem + 15px) 0;
+  }
+  
+  .hero-content {
+    padding: calc(2rem + 10px) 1.5rem;
+    margin: 0 1rem;
+  }
+  
+  .hero-section-banner .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .hero-section-banner .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-section-banner {
+    min-height: calc(40vh + 25px);
+    padding: calc(2rem + 12px) 0;
+  }
+  
+  .hero-content {
+    padding: calc(1.5rem + 8px) 1rem;
+    margin: 0 0.5rem;
+  }
+  
+  .hero-section-banner .hero-title {
+    font-size: 2rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .hero-section-banner .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .hero-blur-overlay {
+    filter: blur(1px) brightness(0.8);
+  }
+}
+
+/* Extra small screens (phones in portrait) */
+@media (max-width: 480px) {
+  .hero-section-banner {
+    min-height: calc(38vh + 20px);
+    padding: calc(1.8rem + 10px) 0;
+  }
+  
+  .hero-content {
+    padding: calc(1.3rem + 6px) 0.8rem;
+    margin: 0 0.3rem;
+    border-radius: 15px;
+  }
+  
+  .hero-section-banner .hero-title {
+    font-size: 1.8rem;
+    letter-spacing: 0.3px;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-section-banner .hero-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+  }
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 import { FaInfoCircle, FaBullseye, FaRocket, FaLightbulb, FaMobile, FaSearch, FaBolt, FaBook, FaPuzzlePiece, FaUsers, FaGift, FaFacebook, FaTwitter, FaLinkedin, FaReact, FaEnvelope } from 'react-icons/fa'
+import bannerImage from '../assets/banner.png'
 
 const About = () => {
   useEffect(() => {
@@ -55,14 +56,24 @@ const About = () => {
       transition={{ duration: 0.6 }}
     >
       {/* Page Header */}
-      <section className="hero-section">
-        <Container>
-          <Row>
+      <section 
+        className="hero-section-banner"
+        style={{
+          backgroundImage: `url(${bannerImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="hero-blur-overlay"></div>
+        <Container className="position-relative">
+          <Row className="align-items-center min-vh-50">
             <Col lg={8} className="mx-auto text-center">
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
+                className="hero-content"
               >
                 <h1 className="hero-title"> About Mini Knowledge Hub</h1>
                 <p className="hero-subtitle">

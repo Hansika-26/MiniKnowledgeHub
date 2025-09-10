@@ -7,7 +7,6 @@ import LessonDetail from './pages/LessonDetail'
 import Quiz from './pages/Quiz'
 import About from './pages/About'
 import Contact from './pages/Contact'
-import FramerMotionExamples from './examples/FramerMotionExamples'
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
           <Route path="/quiz" element={<Quiz />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/examples" element={<FramerMotionExamples />} />
         </Routes>
       </Layout>
     </Router>

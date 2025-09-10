@@ -2,7 +2,7 @@ import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { motion } from 'framer-motion'
-import { FaHome, FaBook, FaQuestionCircle, FaInfoCircle, FaEnvelope, FaGraduationCap, FaBookOpen, FaPlayCircle } from 'react-icons/fa'
+import { FaHome, FaBook, FaQuestionCircle, FaInfoCircle, FaEnvelope, FaGraduationCap, FaBookOpen } from 'react-icons/fa'
 
 const Navigation = () => {
   return (
@@ -49,11 +49,6 @@ const Navigation = () => {
               <LinkContainer to="/contact">
                 <Nav.Link className="nav-link-custom">
                   <FaEnvelope className="me-2" />Contact
-                </Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/examples">
-                <Nav.Link className="nav-link-custom">
-                  <FaPlayCircle className="me-2" />Examples
                 </Nav.Link>
               </LinkContainer>
             </Nav>

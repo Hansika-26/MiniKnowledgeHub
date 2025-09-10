@@ -6,6 +6,7 @@ import { FaRocket, FaPuzzlePiece, FaBook, FaBullseye, FaBrain, FaArrowRight } fr
 import LessonCard from '../components/LessonCard'
 import AnimatedButton from '../components/AnimatedButton'
 import lessonsData from '../data/lessons.json'
+import bannerImage from '../assets/banner.png'
 
 const Home = () => {
   const [featuredLessons, setFeaturedLessons] = useState([])
@@ -35,14 +36,24 @@ const Home = () => {
       transition={{ duration: 0.6 }}
     >
       {/* Hero Section */}
-      <section className="hero-section">
-        <Container>
+      <section 
+        className="hero-section-banner"
+        style={{
+          backgroundImage: `url(${bannerImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="hero-blur-overlay"></div>
+        <Container className="position-relative">
           <Row className="align-items-center min-vh-50">
             <Col lg={8} className="mx-auto text-center">
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
+                className="hero-content"
               >
                 <h1 className="hero-title">
                   Welcome to Mini Knowledge Hub
