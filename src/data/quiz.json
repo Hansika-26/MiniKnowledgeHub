@@ -1,0 +1,128 @@
+{
+  "quiz": {
+    "title": "Web Development Knowledge Quiz",
+    "description": "Test your knowledge of web development fundamentals including HTML, CSS, JavaScript, and React.",
+    "questions": [
+      {
+        "id": 1,
+        "question": "What does HTML stand for?",
+        "options": [
+          "HyperText Markup Language",
+          "High Tech Modern Language",
+          "Home Tool Markup Language",
+          "Hyperlink and Text Markup Language"
+        ],
+        "correctAnswer": 0,
+        "explanation": "HTML stands for HyperText Markup Language. It's the standard markup language for creating web pages and web applications."
+      },
+      {
+        "id": 2,
+        "question": "Which CSS property is used to change the text color of an element?",
+        "options": [
+          "font-color",
+          "text-color",
+          "color",
+          "foreground-color"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The 'color' property in CSS is used to set the color of text content in an element."
+      },
+      {
+        "id": 3,
+        "question": "What is the correct way to create a function in JavaScript?",
+        "options": [
+          "function = myFunction() { }",
+          "function myFunction() { }",
+          "create myFunction() { }",
+          "def myFunction() { }"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The correct syntax for creating a function in JavaScript is 'function functionName() { }' or using arrow function syntax."
+      },
+      {
+        "id": 4,
+        "question": "In React, what is used to pass data from a parent component to a child component?",
+        "options": [
+          "State",
+          "Props",
+          "Methods",
+          "Events"
+        ],
+        "correctAnswer": 1,
+        "explanation": "Props (properties) are used to pass data from parent components to child components in React. They are read-only and help make components reusable."
+      },
+      {
+        "id": 5,
+        "question": "Which of the following is NOT a valid CSS selector?",
+        "options": [
+          ".className",
+          "#idName",
+          "elementName",
+          "@attributeName"
+        ],
+        "correctAnswer": 3,
+        "explanation": "@attributeName is not a valid CSS selector. The @ symbol is used for CSS at-rules like @media, @import, etc. Attribute selectors use square brackets like [attribute]."
+      },
+      {
+        "id": 6,
+        "question": "What does the 'useState' hook do in React?",
+        "options": [
+          "It creates a new component",
+          "It manages component state in functional components",
+          "It handles component lifecycle methods",
+          "It connects to external APIs"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The useState hook allows functional components to have local state. It returns an array with the current state value and a function to update it."
+      },
+      {
+        "id": 7,
+        "question": "Which method is used to add an element to the end of an array in JavaScript?",
+        "options": [
+          "append()",
+          "insert()",
+          "push()",
+          "add()"
+        ],
+        "correctAnswer": 2,
+        "explanation": "The push() method adds one or more elements to the end of an array and returns the new length of the array."
+      },
+      {
+        "id": 8,
+        "question": "What is the purpose of the 'box-sizing' property in CSS?",
+        "options": [
+          "To set the size of text boxes",
+          "To control how the total width and height of an element is calculated",
+          "To create responsive boxes",
+          "To add shadows to elements"
+        ],
+        "correctAnswer": 1,
+        "explanation": "The box-sizing property controls how the total width and height of an element is calculated, including or excluding padding and borders."
+      },
+      {
+        "id": 9,
+        "question": "Which of the following is the correct way to write a comment in JavaScript?",
+        "options": [
+          "<!-- This is a comment -->",
+          "/* This is a comment */",
+          "// This is a comment",
+          "Both B and C"
+        ],
+        "correctAnswer": 3,
+        "explanation": "JavaScript supports both single-line comments with // and multi-line comments with /* */. HTML-style comments are not valid in JavaScript."
+      },
+      {
+        "id": 10,
+        "question": "What is the difference between '==' and '===' in JavaScript?",
+        "options": [
+          "There is no difference",
+          "'==' checks for value equality, '===' checks for value and type equality",
+          "'===' is faster than '=='",
+          "'==' is used for strings, '===' is used for numbers"
+        ],
+        "correctAnswer": 1,
+        "explanation": "'==' performs type coercion and checks for value equality, while '===' performs strict equality checking both value and type without coercion."
+      }
+    ]
+  }
+}

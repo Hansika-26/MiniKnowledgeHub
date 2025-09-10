@@ -1,0 +1,64 @@
+{
+  "lessons": [
+    {
+      "id": 1,
+      "title": "Introduction to Web Development",
+      "description": "Learn the fundamentals of web development including HTML, CSS, and JavaScript basics.",
+      "content": "Web development is the process of creating websites and web applications. It involves several technologies working together to create dynamic, interactive experiences for users.\n\n**Key Technologies:**\n\n1. **HTML (HyperText Markup Language)**: The structure and content of web pages\n2. **CSS (Cascading Style Sheets)**: The styling and layout of web pages\n3. **JavaScript**: The programming language that adds interactivity and dynamic behavior\n\n**What You'll Learn:**\n- How to structure content with semantic HTML\n- Styling techniques with modern CSS\n- Adding interactivity with JavaScript\n- Best practices for responsive design\n- Basic concepts of web accessibility\n\n**Getting Started:**\nTo begin your web development journey, you'll need a text editor and a web browser. Popular editors include Visual Studio Code, Sublime Text, and Atom. Start with simple HTML files and gradually add CSS styling and JavaScript functionality.\n\n**Next Steps:**\nOnce you're comfortable with the basics, explore modern frameworks like React, Vue, or Angular to build more complex applications.",
+      "featured": true,
+      "category": "Web Development",
+      "duration": "45 minutes",
+      "level": "Beginner"
+    },
+    {
+      "id": 2,
+      "title": "React Fundamentals",
+      "description": "Dive deep into React concepts including components, state management, and hooks.",
+      "content": "React is a powerful JavaScript library for building user interfaces, developed by Facebook. It's component-based architecture makes it easy to build complex UIs from small, reusable pieces.\n\n**Core Concepts:**\n\n1. **Components**: The building blocks of React applications\n2. **JSX**: A syntax extension that allows you to write HTML-like code in JavaScript\n3. **Props**: How data flows from parent to child components\n4. **State**: How components manage and update their internal data\n5. **Hooks**: Functions that let you use state and other React features in functional components\n\n**Essential Hooks:**\n- `useState`: For managing component state\n- `useEffect`: For side effects and lifecycle methods\n- `useContext`: For consuming context\n- `useReducer`: For complex state management\n\n**Best Practices:**\n- Keep components small and focused\n- Use functional components with hooks\n- Follow naming conventions\n- Implement proper error boundaries\n- Optimize performance with React.memo and useMemo\n\n**Building Your First App:**\nStart with create-react-app to set up your development environment quickly. Practice building simple components like buttons, forms, and lists before moving on to more complex applications.",
+      "featured": true,
+      "category": "React",
+      "duration": "60 minutes",
+      "level": "Intermediate"
+    },
+    {
+      "id": 3,
+      "title": "CSS Grid and Flexbox",
+      "description": "Master modern CSS layout techniques for responsive web design.",
+      "content": "CSS Grid and Flexbox are powerful layout systems that have revolutionized how we create responsive web designs. Understanding both will give you the tools to create virtually any layout.\n\n**CSS Flexbox:**\nFlexbox is ideal for one-dimensional layouts (either rows or columns).\n\n**Key Properties:**\n- `display: flex`: Creates a flex container\n- `flex-direction`: Controls the direction of flex items\n- `justify-content`: Aligns items along the main axis\n- `align-items`: Aligns items along the cross axis\n- `flex-wrap`: Controls wrapping of flex items\n\n**CSS Grid:**\nGrid is perfect for two-dimensional layouts (both rows and columns).\n\n**Key Properties:**\n- `display: grid`: Creates a grid container\n- `grid-template-columns`: Defines column sizes\n- `grid-template-rows`: Defines row sizes\n- `grid-gap`: Sets spacing between grid items\n- `grid-area`: Places items in specific grid areas\n\n**When to Use Each:**\n- Use Flexbox for component-level layouts\n- Use Grid for page-level layouts\n- Combine both for maximum flexibility\n\n**Responsive Design:**\nBoth systems work excellently with media queries to create responsive designs that adapt to different screen sizes.",
+      "featured": false,
+      "category": "CSS",
+      "duration": "50 minutes",
+      "level": "Intermediate"
+    },
+    {
+      "id": 4,
+      "title": "JavaScript ES6+ Features",
+      "description": "Explore modern JavaScript features that improve code quality and developer experience.",
+      "content": "ECMAScript 6 (ES6) and later versions have introduced many features that make JavaScript more powerful and easier to work with. These features are essential for modern web development.\n\n**Key ES6+ Features:**\n\n**1. Arrow Functions:**\n```javascript\n// Traditional function\nfunction add(a, b) {\n  return a + b;\n}\n\n// Arrow function\nconst add = (a, b) => a + b;\n```\n\n**2. Template Literals:**\n```javascript\nconst name = 'World';\nconst greeting = `Hello, ${name}!`;\n```\n\n**3. Destructuring:**\n```javascript\nconst user = { name: 'John', age: 30 };\nconst { name, age } = user;\n```\n\n**4. Spread Operator:**\n```javascript\nconst arr1 = [1, 2, 3];\nconst arr2 = [...arr1, 4, 5];\n```\n\n**5. Promises and Async/Await:**\n```javascript\nasync function fetchData() {\n  try {\n    const response = await fetch('/api/data');\n    const data = await response.json();\n    return data;\n  } catch (error) {\n    console.error('Error:', error);\n  }\n}\n```\n\n**6. Modules:**\n```javascript\n// Export\nexport const myFunction = () => {};\n\n// Import\nimport { myFunction } from './module.js';\n```\n\n**Benefits:**\n- Cleaner, more readable code\n- Better error handling\n- Improved performance\n- Enhanced developer experience",
+      "featured": true,
+      "category": "JavaScript",
+      "duration": "55 minutes",
+      "level": "Intermediate"
+    },
+    {
+      "id": 5,
+      "title": "Responsive Web Design Principles",
+      "description": "Learn how to create websites that work perfectly on all devices and screen sizes.",
+      "content": "Responsive web design ensures that your website provides an optimal viewing experience across a wide range of devices, from desktop computers to mobile phones.\n\n**Core Principles:**\n\n**1. Fluid Grids:**\nUse relative units like percentages instead of fixed pixels for layout elements.\n\n**2. Flexible Images:**\nMake images scale with the layout:\n```css\nimg {\n  max-width: 100%;\n  height: auto;\n}\n```\n\n**3. Media Queries:**\nApply different styles based on device characteristics:\n```css\n@media (max-width: 768px) {\n  .container {\n    padding: 10px;\n  }\n}\n```\n\n**4. Mobile-First Approach:**\nStart designing for mobile devices, then enhance for larger screens.\n\n**5. Flexible Typography:**\nUse relative units like `em`, `rem`, or `vw` for font sizes.\n\n**Common Breakpoints:**\n- Mobile: 320px - 768px\n- Tablet: 768px - 1024px\n- Desktop: 1024px and above\n\n**Testing:**\n- Use browser developer tools\n- Test on real devices\n- Use online testing tools\n\n**Performance Considerations:**\n- Optimize images for different screen densities\n- Use appropriate image formats (WebP, AVIF)\n- Implement lazy loading for images\n- Minimize CSS and JavaScript file sizes",
+      "featured": false,
+      "category": "Web Design",
+      "duration": "40 minutes",
+      "level": "Beginner"
+    },
+    {
+      "id": 6,
+      "title": "Node.js and Express.js Basics",
+      "description": "Get started with server-side JavaScript using Node.js and the Express framework.",
+      "content": "Node.js allows you to run JavaScript on the server side, while Express.js is a minimal web framework that makes building web applications and APIs easier.\n\n**What is Node.js?**\nNode.js is a JavaScript runtime built on Chrome's V8 engine. It allows you to execute JavaScript code outside of a web browser, making it perfect for server-side development.\n\n**Key Features:**\n- Event-driven, non-blocking I/O\n- Large ecosystem (npm)\n- Fast execution\n- Cross-platform compatibility\n\n**Express.js Framework:**\nExpress is a fast, unopinionated web framework for Node.js.\n\n**Getting Started:**\n```javascript\nconst express = require('express');\nconst app = express();\nconst port = 3000;\n\napp.get('/', (req, res) => {\n  res.send('Hello World!');\n});\n\napp.listen(port, () => {\n  console.log(`Server running at http://localhost:${port}`);\n});\n```\n\n**Core Concepts:**\n\n**1. Routing:**\nDefine how your application responds to client requests:\n```javascript\napp.get('/users', (req, res) => {\n  // Handle GET request to /users\n});\n\napp.post('/users', (req, res) => {\n  // Handle POST request to /users\n});\n```\n\n**2. Middleware:**\nFunctions that execute during the request-response cycle:\n```javascript\napp.use(express.json()); // Parse JSON bodies\napp.use(express.static('public')); // Serve static files\n```\n\n**3. Error Handling:**\n```javascript\napp.use((err, req, res, next) => {\n  console.error(err.stack);\n  res.status(500).send('Something broke!');\n});\n```\n\n**Building APIs:**\nExpress makes it easy to build RESTful APIs with proper HTTP methods and status codes.",
+      "featured": false,
+      "category": "Backend",
+      "duration": "65 minutes",
+      "level": "Intermediate"
+    }
+  ]
+}
