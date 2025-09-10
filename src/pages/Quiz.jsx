@@ -17,9 +17,39 @@ const Quiz = () => {
   const [score, setScore] = useState(0)
   const [quizStarted, setQuizStarted] = useState(false)
   const [lessonContext, setLessonContext] = useState(null)
+  const [startTime, setStartTime] = useState(null)
+  const [currentTime, setCurrentTime] = useState(null)
+  const [totalTime, setTotalTime] = useState(0)
 
   const { quiz } = quizData
   const totalQuestions = quiz.questions.length
+
+  // Timer effect
+  useEffect(() => {
+    let interval = null
+    if (quizStarted && !showResults && startTime) {
+      interval = setInterval(() => {
+        setCurrentTime(Date.now())
+      }, 1000)
+    } else {
+      clearInterval(interval)
+    }
+    return () => clearInterval(interval)
+  }, [quizStarted, showResults, startTime])
+
+  // Format time helper function
+  const formatTime = (milliseconds) => {
+    const totalSeconds = Math.floor(milliseconds / 1000)
+    const minutes = Math.floor(totalSeconds / 60)
+    const seconds = totalSeconds % 60
+    return `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+  }
+
+  // Get current elapsed time
+  const getElapsedTime = () => {
+    if (!startTime || !currentTime) return 0
+    return currentTime - startTime
+  }
 
   useEffect(() => {
     document.title = 'Quiz - Mini Knowledge Hub'
@@ -47,6 +77,9 @@ const Quiz = () => {
     setSelectedAnswers({})
     setShowResults(false)
     setScore(0)
+    const now = Date.now()
+    setStartTime(now)
+    setCurrentTime(now)
   }
 
   const handleAnswerSelect = (questionId, selectedOption) => {
@@ -79,6 +112,11 @@ const Quiz = () => {
       }
     })
     
+    // Calculate total time taken
+    const finalTime = Date.now()
+    const timeTaken = finalTime - startTime
+    setTotalTime(timeTaken)
+    
     setScore(correctAnswers)
     setShowResults(true)
   }
@@ -89,6 +127,9 @@ const Quiz = () => {
     setSelectedAnswers({})
     setShowResults(false)
     setScore(0)
+    setStartTime(null)
+    setCurrentTime(null)
+    setTotalTime(0)
   }
 
   const handleBackToLesson = () => {
@@ -133,7 +174,7 @@ const Quiz = () => {
           <div className="hero-blur-overlay"></div>
           <Container className="position-relative">
             <Row className="align-items-center min-vh-50">
-              <Col lg={8} className="mx-auto text-center">
+              <Col lg={8} className="ms-auto">
                 <motion.div
                   initial={{ y: 30, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
@@ -261,6 +302,34 @@ const Quiz = () => {
                   <p className="lead">
                     You answered <strong>{score}</strong> out of <strong>{totalQuestions}</strong> questions correctly.
                   </p>
+                  <p className="text-muted">
+                    <FaClock className="me-2" />
+                    Time taken: <strong>{formatTime(totalTime)}</strong>
+                  </p>
+                </div>
+
+                {/* Quiz Statistics */}
+                <div className="quiz-stats mb-4">
+                  <Row>
+                    <Col md={4} className="text-center">
+                      <h5 className="text-primary-custom mb-2">
+                        <FaClock className="me-2" />Total Time
+                      </h5>
+                      <p className="mb-0 timer-display">{formatTime(totalTime)}</p>
+                    </Col>
+                    <Col md={4} className="text-center">
+                      <h5 className="text-primary-custom mb-2">
+                        <FaChartBar className="me-2" />Accuracy
+                      </h5>
+                      <p className="mb-0 fw-bold">{percentage}%</p>
+                    </Col>
+                    <Col md={4} className="text-center">
+                      <h5 className="text-primary-custom mb-2">
+                        <FaTrophy className="me-2" />Score
+                      </h5>
+                      <p className="mb-0 fw-bold">{score}/{totalQuestions}</p>
+                    </Col>
+                  </Row>
                 </div>
 
                 {/* Detailed Results */}
@@ -368,7 +437,7 @@ const Quiz = () => {
       <Container className="py-5 quiz-container">
         <Row>
           <Col lg={10} className="mx-auto">
-            {/* Progress Bar */}
+            {/* Progress Bar and Timer */}
             <motion.div
               className="mb-4"
               initial={{ y: -20, opacity: 0 }}
@@ -377,9 +446,15 @@ const Quiz = () => {
             >
               <div className="d-flex justify-content-between align-items-center mb-2">
                 <span className="text-muted">Progress</span>
-                <span className="text-muted">
-                  {currentQuestion + 1} of {totalQuestions}
-                </span>
+                <div className="d-flex align-items-center gap-3">
+                  <div className="timer-display">
+                    <FaClock className="me-1" />
+                    {formatTime(getElapsedTime())}
+                  </div>
+                  <span className="text-muted">
+                    {currentQuestion + 1} of {totalQuestions}
+                  </span>
+                </div>
               </div>
               <ProgressBar now={progress} className="mb-4" style={{ height: '8px' }} />
             </motion.div>

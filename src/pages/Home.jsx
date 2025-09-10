@@ -37,7 +37,7 @@ const Home = () => {
     >
       {/* Hero Section */}
       <section 
-        className="hero-section-banner"
+        className="hero-section-banner home-banner"
         style={{
           backgroundImage: `url(${bannerImage})`,
           backgroundSize: 'cover',
@@ -47,8 +47,8 @@ const Home = () => {
       >
         <div className="hero-blur-overlay"></div>
         <Container className="position-relative">
-          <Row className="align-items-center min-vh-50">
-            <Col lg={8} className="mx-auto text-center">
+          <Row className="align-items-center min-vh-40">
+            <Col lg={8} className="ms-auto">
               <motion.div
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -62,7 +62,7 @@ const Home = () => {
                   Discover the world of web development through interactive lessons and engaging quizzes. 
                   Master the skills you need to build amazing websites and applications.
                 </p>
-                <div className="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                <div className="d-flex flex-column flex-sm-row gap-3 justify-content-end">
                   <AnimatedButton
                     onClick={handleGetStarted}
                     className="btn-cta-green"

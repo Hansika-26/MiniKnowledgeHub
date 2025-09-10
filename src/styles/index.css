@@ -41,110 +41,35 @@ body {
   cursor: pointer;
 }
 
-.logo-brand:hover .logo-book {
-  color: #ffed4e;
-  transform: scale(1.1);
+.logo-image {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
 }
 
-.logo-brand:hover .logo-hat {
-  color: #ff8a8a;
-  transform: scale(1.1) rotate(10deg);
+.logo-brand:hover .logo-image {
+  transform: scale(1.05);
+  filter: brightness(1.1);
 }
 
 .logo-brand:hover .brand-text {
-  animation-duration: 1s;
-}
-
-.logo-container {
-  position: relative;
-  margin-right: 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 40px;
-}
-
-.logo-book {
-  font-size: 1.8rem;
-  color: #ffd700; /* Golden yellow for the book */
-  position: relative;
-  z-index: 1;
-  animation: bookFloat 2s ease-in-out infinite;
-}
-
-.logo-hat {
-  font-size: 1.4rem;
-  color: #ff6b6b; /* Coral red for the graduation hat */
-  position: absolute;
-  top: -8px;
-  right: -5px;
-  z-index: 2;
-  animation: hatBounce 2.5s ease-in-out infinite;
+  /* Removed animation */
 }
 
 .brand-text {
-  color: #ffd700; /* Fallback color */
-  background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #45b7d1);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  background-size: 300% 300%;
-  animation: gradientShift 4s ease infinite;
+  color: #ffffff;
   font-weight: 700;
   letter-spacing: 0.5px;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes bookFloat {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-3px);
-  }
-}
 
-@keyframes hatBounce {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  25% {
-    transform: translateY(-2px) rotate(-5deg);
-  }
-  75% {
-    transform: translateY(-1px) rotate(5deg);
-  }
-}
-
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 
 /* Responsive logo adjustments */
 @media (max-width: 768px) {
-  .logo-container {
-    width: 40px;
+  .logo-image {
     height: 35px;
-    margin-right: 0.5rem;
-  }
-  
-  .logo-book {
-    font-size: 1.5rem;
-  }
-  
-  .logo-hat {
-    font-size: 1.2rem;
-    top: -6px;
-    right: -3px;
   }
   
   .brand-text {
@@ -157,8 +82,8 @@ body {
     display: none;
   }
   
-  .logo-container {
-    margin-right: 0;
+  .logo-image {
+    height: 30px;
   }
 }
 
@@ -314,12 +239,18 @@ body {
   display: flex;
   align-items: center;
   color: white;
-  padding: calc(3rem + 18px) 0;
+  padding: calc(2.5rem + 12px) 0;
   margin-bottom: 3rem;
   overflow: hidden;
 }
 
-/* Blur overlay for the background image */
+/* Home page specific smaller banner */
+.hero-section-banner.home-banner {
+  min-height: calc(40vh);
+  padding: calc(1.5rem + 5px) 0;
+}
+
+/* Blur overlay for the background image - Enhanced lighting */
 .hero-blur-overlay {
   position: absolute;
   top: 0;
@@ -327,7 +258,7 @@ body {
   right: 0;
   bottom: 0;
   background: inherit;
-  filter: blur(2px) brightness(0.7);
+  filter: brightness(0.9) contrast(1.2);
   z-index: 1;
 }
 
@@ -338,28 +269,32 @@ body {
 }
 
 .hero-content {
-  backdrop-filter: blur(5px);
-  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: none;
+  background: transparent;
   border-radius: 20px;
   padding: calc(2.5rem + 12px) 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: none;
+  text-align: right;
+  margin-left: auto;
+  margin-right: 2rem;
+  max-width: 800px;
 }
 
 /* Enhanced text styling */
 .hero-section-banner .hero-title {
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.8);
   color: #ffffff;
   letter-spacing: 1px;
 }
 
 .hero-section-banner .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   margin-bottom: 2rem;
   opacity: 0.95;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9), 1px 1px 2px rgba(0, 0, 0, 0.8);
   line-height: 1.6;
 }
 
@@ -510,6 +445,48 @@ body {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+
+/* Quiz Timer Styles */
+.quiz-timer {
+  background: rgba(13, 110, 253, 0.1);
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quiz-timer.active {
+  animation: timerPulse 2s ease-in-out infinite;
+}
+
+@keyframes timerPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 8px rgba(13, 110, 253, 0);
+  }
+}
+
+.quiz-stats {
+  background: var(--light-gray);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.timer-display {
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--primary-color);
 }
 
 /* Form Styles */
@@ -813,6 +790,7 @@ body {
   .hero-content {
     padding: calc(2rem + 10px) 1.5rem;
     margin: 0 1rem;
+    text-align: center;
   }
   
   .hero-section-banner .hero-title {
@@ -833,6 +811,7 @@ body {
   .hero-content {
     padding: calc(1.5rem + 8px) 1rem;
     margin: 0 0.5rem;
+    text-align: center;
   }
   
   .hero-section-banner .hero-title {
@@ -846,7 +825,7 @@ body {
   }
   
   .hero-blur-overlay {
-    filter: blur(1px) brightness(0.8);
+    filter: brightness(0.8);
   }
 }
 
@@ -861,6 +840,7 @@ body {
     padding: calc(1.3rem + 6px) 0.8rem;
     margin: 0 0.3rem;
     border-radius: 15px;
+    text-align: center;
   }
   
   .hero-section-banner .hero-title {
@@ -874,4 +854,17 @@ body {
     line-height: 1.4;
     margin-bottom: 1.5rem;
   }
+}
+
+/* Utility Classes */
+.min-vh-40 {
+  min-height: 40vh;
+}
+
+.min-vh-50 {
+  min-height: 50vh;
+}
+
+.min-vh-80 {
+  min-height: 80vh;
 }

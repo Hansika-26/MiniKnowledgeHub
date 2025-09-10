@@ -2,7 +2,8 @@ import React from 'react'
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { motion } from 'framer-motion'
-import { FaHome, FaBook, FaQuestionCircle, FaInfoCircle, FaEnvelope, FaGraduationCap, FaBookOpen } from 'react-icons/fa'
+import { FaHome, FaBook, FaQuestionCircle, FaInfoCircle, FaEnvelope } from 'react-icons/fa'
+import logoImage from '../assets/Image.png'
 
 const Navigation = () => {
   return (
@@ -16,8 +17,12 @@ const Navigation = () => {
           <LinkContainer to="/">
             <Navbar.Brand className="fw-bold fs-3 logo-brand">
               <div className="logo-container">
-                <FaBookOpen className="logo-book" />
-                <FaGraduationCap className="logo-hat" />
+                <img 
+                  src={logoImage} 
+                  alt="Mini Knowledge Hub Logo" 
+                  className="logo-image"
+                  style={{ height: '40px', width: 'auto', marginRight: '10px' }}
+                />
               </div>
               <span className="brand-text">Mini Knowledge Hub</span>
             </Navbar.Brand>

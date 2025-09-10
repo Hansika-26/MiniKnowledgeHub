@@ -62,7 +62,7 @@ const Lessons = () => {
         <div className="hero-blur-overlay"></div>
         <Container className="position-relative">
           <Row className="align-items-center min-vh-50">
-            <Col lg={8} className="mx-auto text-center">
+            <Col lg={8} className="ms-auto">
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
