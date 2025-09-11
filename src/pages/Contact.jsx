@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, Row, Col, Form, Alert, Card } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 import { FaUser, FaEnvelope, FaCommentDots, FaPhone, FaComments, FaUsers, FaQuestionCircle, FaBug, FaBookOpen, FaRocket, FaPaperPlane } from 'react-icons/fa'
+import emailjs from '@emailjs/browser'
 import AnimatedButton from '../components/AnimatedButton'
 import bannerImage from '../assets/banner.png'
 
@@ -75,17 +76,48 @@ const Contact = () => {
 
     setIsSubmitting(true)
 
-    // Simulate form submission delay
-    setTimeout(() => {
+    // EmailJS configuration
+    const serviceId = 'service_m0okajn'
+    const templateId = 'template_d2eei15'
+    const publicKey = 'ikE4ovmKcrRL6IIxk'
+
+    // Template parameters for EmailJS
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      reply_to: formData.email,
+      to_name: 'Kaumini Hasik',
+      to_email: 'kauminihasik2002@gmail.com',
+      subject: `Message from ${formData.name} <${formData.email}>`,
+      sender_info: `${formData.name} (${formData.email})`,
+      user_name: formData.name,
+      user_email: formData.email,
+      message: formData.message
+    }
+
+    // Debug: Log the parameters being sent
+    console.log('Sending EmailJS with parameters:', templateParams)
+
+    try {
+      // Send email using EmailJS
+      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      
+      // Success: Show success message and reset form
       setShowSuccess(true)
       setFormData({ name: '', email: '', message: '' })
-      setIsSubmitting(false)
       
       // Hide success message after 5 seconds
       setTimeout(() => {
         setShowSuccess(false)
       }, 5000)
-    }, 1000)
+    } catch (error) {
+      console.error('EmailJS Error:', error)
+      
+      // Show error message
+      setErrors({ submit: 'Failed to send message. Please try again later.' })
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -93,7 +125,7 @@ const Contact = () => {
       icon: <FaEnvelope size={32} />,
       title: 'Email Us',
       description: 'Send us your questions or feedback',
-      value: 'hello@miniknowledgehub.com'
+      value: 'kauminihasik2002@gmail.com'
     },
     {
       icon: <FaComments size={32} />,
@@ -246,6 +278,13 @@ const Contact = () => {
                         Minimum 10 characters required
                       </Form.Text>
                     </Form.Group>
+                    
+                    {/* Error message for submission failures */}
+                    {errors.submit && (
+                      <Alert variant="danger" className="mb-3">
+                        {errors.submit}
+                      </Alert>
+                    )}
                     
                     <div className="text-center">
                       <AnimatedButton
