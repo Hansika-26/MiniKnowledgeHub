@@ -76,10 +76,10 @@ const Contact = () => {
 
     setIsSubmitting(true)
 
-    // EmailJS configuration
-    const serviceId = 'service_m0okajn'
-    const templateId = 'template_d2eei15'
-    const publicKey = 'ikE4ovmKcrRL6IIxk'
+    // EmailJS configuration with your credentials
+    const serviceId = 'service_m0okajn'  // Your Service ID
+    const templateId = 'template_d2eei15'  // Your Template ID
+    const publicKey = 'ikE4ovmKcrRL6IIxk'  // Your Public Key
 
     // Template parameters for EmailJS
     const templateParams = {
@@ -87,24 +87,34 @@ const Contact = () => {
       from_email: formData.email,
       reply_to: formData.email,
       to_name: 'Kaumini Hasik',
-      to_email: 'kauminihasik2002@gmail.com',
+      to_email: 'kauminihasik2002@gmail.com',  // Your receiving email
       subject: `Message from ${formData.name} <${formData.email}>`,
       sender_info: `${formData.name} (${formData.email})`,
       user_name: formData.name,
       user_email: formData.email,
-      message: formData.message
+      message: formData.message,
+      timestamp: new Date().toLocaleString()
     }
 
     // Debug: Log the parameters being sent
     console.log('Sending EmailJS with parameters:', templateParams)
+    console.log('Using Service ID:', serviceId)
+    console.log('Using Template ID:', templateId)
+    console.log('Using Public Key:', publicKey)
 
     try {
+      // Initialize EmailJS with your public key
+      emailjs.init(publicKey)
+      
       // Send email using EmailJS
-      await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
+      
+      console.log('EmailJS Success:', response)
       
       // Success: Show success message and reset form
       setShowSuccess(true)
       setFormData({ name: '', email: '', message: '' })
+      setErrors({})  // Clear any previous errors
       
       // Hide success message after 5 seconds
       setTimeout(() => {
@@ -113,8 +123,15 @@ const Contact = () => {
     } catch (error) {
       console.error('EmailJS Error:', error)
       
-      // Show error message
-      setErrors({ submit: 'Failed to send message. Please try again later.' })
+      // Show detailed error message
+      let errorMessage = 'Failed to send message. Please try again later.'
+      if (error.text) {
+        errorMessage = `Error: ${error.text}`
+      } else if (error.message) {
+        errorMessage = `Error: ${error.message}`
+      }
+      
+      setErrors({ submit: errorMessage })
     } finally {
       setIsSubmitting(false)
     }
